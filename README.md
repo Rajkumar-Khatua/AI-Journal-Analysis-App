@@ -33,27 +33,28 @@ Moody is a journal app that uses AI to analyze your mood and provide insights in
 
 1. Clone the repository
 
-    ```bash
+```bash
     git clone https://github.com/Rajkumar-Khatua/AI-Journal-Analysis-App.git
-    ```
+    cd AI-Journal-Analysis-App
+```
 
 2. Install the dependencies
 
-    ```bash
+```bash
     npm install
-    ```
+```
 
 3. Create a `.env.local` file in the root directory and add the following environment variables
 
-    ```bash
+```bash
     for environment variables, I'm using two separated files
     - .env.local (for frontend environment variables that are accessible in the browser)
     - .env (for backend environment variables for now I'm using this file for storing the database url key)
-    ```
+```
 
 ### .env.local
 
-    ```bash
+```bash
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="Add your clerk publishable key here"
     CLERK_SECRET_KEY="Add your clerk secret key here"
 
@@ -61,19 +62,19 @@ Moody is a journal app that uses AI to analyze your mood and provide insights in
     NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
     NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_URL=/journal
     NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_URL=/new-user
-    ```
+```
 
 ### .env
 
-    ```bash
+```bash
     DATABASE_URL="Add your database url here"
-    ```
+```
 
 4. Run the development server
 
-    ```bash
+```bash
     npm run dev
-    ```
+```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
