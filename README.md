@@ -45,12 +45,9 @@ Moody is a journal app that uses AI to analyze your mood and provide insights in
 ```
 
 3. Create a `.env.local` file in the root directory and add the following environment variables
-
-```bash
     for environment variables, I'm using two separated files
     - .env.local (for frontend environment variables that are accessible in the browser)
     - .env (for backend environment variables for now I'm using this file for storing the database url key)
-```
 
 ### .env.local
 
