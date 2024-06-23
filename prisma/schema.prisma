@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "cockroachdb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id        String         @id @default(uuid())
+  email     String         @unique
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  clerkId   String         @unique
+  // This relation is for the user to have multiple journals
+  entries   JournalEntry[]
+}
+
+model JournalEntry {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  // This relation is for the journal to have a user 
+  user   User   @relation(fields: [userId], references: [id])
+
+  // This relation is for the journal to have multiple analysis
+  analysis Analysis?
+
+  @@index([userId])
+}
+
+// Analysis for post using AI
+model Analysis {
+  id        String       @id @default(uuid())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  mood      String
+  summary   String
+  color     String
+  negetive  Boolean
+  entryId   String
+  // This relation is for the analysis to have a journal
+  entry     JournalEntry @relation(fields: [entryId], references: [id])
+
+  @@unique([entryId])
+}
