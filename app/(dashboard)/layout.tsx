@@ -53,19 +53,20 @@ const DashboardLayout = async ({ children }) => {
             <div
                 className="
                 ml-64
+                h-full
             "
             >
                 <header
                     className="
                     h-[64px]
-                    bg-white
+                bg-gray-900
                     shadow
                     flex
                     items-center
                     justify-between
                     px-4
                     border-b
-                    border-gray-200
+                    border-gray-100
                 "
                 >
                     <Link
@@ -76,20 +77,22 @@ const DashboardLayout = async ({ children }) => {
                             tracking-wider
                             transition-all
                             duration-200
+                            text-white
                             ease-in-out
                             hover:text-gray-800
                             "
                     >
                         Moody
                     </Link>
-                    <div className="p-2 bg-gray-200/60 border rounded-lg flex items-center justify-center gap-2">
+                    <div className="p-2 flex items-center justify-center gap-2">
                         <span
                             className="
-                            text-gray-800
+                            text-gray-200/80
                             transition-all
                             duration-200
                             ease-in-out
                             hover:text-gray-600
+                            cursor-pointer
                             "
                         >
                             Nice to see you, {user?.firstName}
@@ -97,7 +100,7 @@ const DashboardLayout = async ({ children }) => {
                         <UserButton />
                     </div>
                 </header>
-                <main className="p-4">{children}</main>
+                <main className="p-4 h-[calc(100vh-60px)] ">{children}</main>
             </div>
         </div>
     )

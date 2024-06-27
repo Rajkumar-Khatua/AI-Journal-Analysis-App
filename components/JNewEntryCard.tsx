@@ -1,4 +1,15 @@
+'use client'
+
+import { createNewEntry } from '@/utils/api'
+import { useRouter } from 'next/navigation'
+
 const JNewEntryCard = () => {
+    const router = useRouter()
+
+    const handleOnClick = async () => {
+        const data = await createNewEntry()
+        router.push(`/journal/${data.id}`)
+    }
     return (
         <div
             className="
@@ -20,6 +31,7 @@ const JNewEntryCard = () => {
                 py-5
                 sm:p-6
             "
+                onClick={handleOnClick}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

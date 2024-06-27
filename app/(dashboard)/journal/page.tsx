@@ -2,6 +2,7 @@ import EntryCard from '@/components/JEntryCard'
 import JNewEntryCard from '@/components/JNewEntryCard'
 import { getUserByClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
+import Link from 'next/link'
 import React from 'react'
 
 const getEntries = async () => {
@@ -17,13 +18,13 @@ const getEntries = async () => {
     })
 
     return entries
-} 
+}
 const Journal = async () => {
     const entries = await getEntries()
     console.log(entries)
     return (
         // Display the journal entries
-        <div className="p-8">
+        <div className="p-8 bg-zinc-300/30 h-full">
             <h3 className="text-3xl font-bold mb-8">
                 Here are your journal entries so far
             </h3>
@@ -36,7 +37,9 @@ const Journal = async () => {
             >
                 <JNewEntryCard />
                 {entries.map((entry) => (
-                    <EntryCard key={entry.id} entry={entry} />
+                    <Link href={`/journal/${entry.id}`} key={entry.id}>
+                        <EntryCard key={entry.id} entry={entry} />
+                    </Link>
                 ))}
             </div>
         </div>
