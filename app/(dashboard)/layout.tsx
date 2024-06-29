@@ -4,7 +4,7 @@ import { currentUser } from '@clerk/nextjs/server'
 
 const DashboardLayout = async ({ children }) => {
     const user = await currentUser()
-    console.log(user)
+    // console.log(user)
     return (
         <div className="h-screen w-screen relative">
             <aside

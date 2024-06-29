@@ -32,7 +32,7 @@ model JournalEntry {
   // This relation is for the journal to have multiple analysis
   analysis Analysis?
 
-  @@index([userId])
+  @@unique([userId, id])
 }
 
 // Analysis for post using AI

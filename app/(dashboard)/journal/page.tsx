@@ -21,7 +21,7 @@ const getEntries = async () => {
 }
 const Journal = async () => {
     const entries = await getEntries()
-    console.log(entries)
+    // console.log(entries)
     return (
         // Display the journal entries
         <div className="p-8 bg-zinc-300/30 h-full">
