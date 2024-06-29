@@ -27,4 +27,5 @@ export const updateEntry = async (id, updates) => {
             `Failed to update journal entry with id: ${id}. Error: ${res.statusText}`
         )
     }
+    
 }

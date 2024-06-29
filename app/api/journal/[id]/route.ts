@@ -15,6 +15,5 @@ export const PATCH = async (request: Request, { params }) => {
         },
         data: updates
     })
-
     return NextResponse.json({ data: entry })
 }
